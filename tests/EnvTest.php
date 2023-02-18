@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class EnvTest extends TestCase
 {
 
-    public function provider_testGetWillPass(): array
+    public static function provider_testGetWillPass(): array
     {
         return [
             'Get Env as String' => [

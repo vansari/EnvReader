@@ -3,11 +3,24 @@ declare(strict_types=1);
 
 namespace Freesoftde\EnvReader;
 
+use Freesoftde\EnvReader\Types\StringType;
+use Freesoftde\EnvReader\Types\TypeCollection;
+
 class Env
 {
     private static ?Env $instance = null;
+    private TypeCollection $collection;
 
-    private function __construct() {}
+    private function __construct() {
+        $this->collection = new TypeCollection(
+            new StringType()
+        );
+    }
+
+    public function getCollection(): TypeCollection
+    {
+        return $this->collection;
+    }
 
     private function __clone() {}
 
@@ -28,13 +41,6 @@ class Env
             return null;
         }
 
-        return match($type) {
-            'string' => $this->asString($value)
-        };
-    }
-
-    private function asString(mixed $value): string
-    {
-        return (string)$value;
+        return $this->collection->getItem($type)->get($value);
     }
 }
