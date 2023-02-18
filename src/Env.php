@@ -9,17 +9,6 @@ class Env
 
     private function __construct() {}
 
-    public function get(string $env, string $type): mixed
-    {
-        if (false === (bool)($value = $_ENV[$env] ?? $_SERVER[$env] ?? getenv($env))) {
-            return null;
-        }
-
-        return match($type) {
-            'string' => $this->asString($value)
-        };
-    }
-
     private function __clone() {}
 
     private function __wakeup() {}
@@ -31,6 +20,17 @@ class Env
         }
 
         return self::$instance;
+    }
+
+    public function get(string $env, string $type): mixed
+    {
+        if (false === (bool)($value = $_ENV[$env] ?? $_SERVER[$env] ?? getenv($env))) {
+            return null;
+        }
+
+        return match($type) {
+            'string' => $this->asString($value)
+        };
     }
 
     private function asString(mixed $value): string
