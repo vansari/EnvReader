@@ -1,0 +1,19 @@
+{
+    "name": "freesoftde/env-reader",
+    "description": "Simple Env Reader for PHP",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Freesoftde\\EnvReader\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Freesoftde\\EnvReader\\Test\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
+    }
+}
