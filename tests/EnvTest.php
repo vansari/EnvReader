@@ -25,6 +25,12 @@ class EnvTest extends TestCase
                 'integer',
                 1234,
             ],
+            'Get Env as Float' => [
+                'SOME_ENV',
+                '1234.56',
+                'float',
+                1234.56,
+            ],
         ];
     }
 
