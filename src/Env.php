@@ -43,6 +43,6 @@ class Env
             return null;
         }
 
-        return $this->collection->getItem($type)->get($value);
+        return $this->collection->getItem($type)->convert($value);
     }
 }
