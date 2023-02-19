@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Freesoftde\EnvReader;
 
+use Freesoftde\EnvReader\Types\IntegerType;
 use Freesoftde\EnvReader\Types\StringType;
 use Freesoftde\EnvReader\Types\TypeCollection;
 
@@ -13,7 +14,8 @@ class Env
 
     private function __construct() {
         $this->collection = new TypeCollection(
-            new StringType()
+            new StringType(),
+            new IntegerType(),
         );
     }
 

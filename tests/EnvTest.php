@@ -19,11 +19,17 @@ class EnvTest extends TestCase
                 'string',
                 'text',
             ],
+            'Get Env as Int' => [
+                'SOME_ENV',
+                '1234',
+                'integer',
+                1234,
+            ],
         ];
     }
 
     #[DataProvider('provider_testGetWillPass')]
-    public function testGetWillPassWithPutenv(?string $env, mixed $value, string $type, string $expected): void
+    public function testGetWillPassWithPutenv(?string $env, mixed $value, string $type, mixed $expected): void
     {
         putenv("$env=$value");
         $envValue = Env::getInstance()->get($env, $type);
@@ -32,7 +38,7 @@ class EnvTest extends TestCase
     }
 
     #[DataProvider('provider_testGetWillPass')]
-    public function testGetWillPassWithENV(?string $env, mixed $value, string $type, string $expected): void
+    public function testGetWillPassWithENV(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_ENV[$env] = $value;
         $envValue = Env::getInstance()->get($env, $type);
@@ -41,7 +47,7 @@ class EnvTest extends TestCase
     }
 
     #[DataProvider('provider_testGetWillPass')]
-    public function testGetWillPassWithSERVER(?string $env, mixed $value, string $type, string $expected): void
+    public function testGetWillPassWithSERVER(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_SERVER[$env] = $value;
         $envValue = Env::getInstance()->get($env, $type);
