@@ -11,7 +11,7 @@ class StringType implements TypeInterface
         return 'string';
     }
 
-    public function get(mixed $value): string
+    public function convert(mixed $value): string
     {
         return (string)$value;
     }

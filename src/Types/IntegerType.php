@@ -13,7 +13,7 @@ class IntegerType implements TypeInterface
         return 'integer';
     }
 
-    public function get(mixed $value): int
+    public function convert(mixed $value): int
     {
         if (false === ($filtered = (filter_var($value, \FILTER_VALIDATE_FLOAT) ?: filter_var($value, \FILTER_VALIDATE_INT)))) {
             throw new ConvertionException("Could not convert value $value to int.");

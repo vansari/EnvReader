@@ -33,6 +33,6 @@ class StringTypeTest extends TestCase
     #[DataProvider('provider_testGet')]
     public function testGet(mixed $input, string $expected): void
     {
-        $this->assertSame($expected, (new StringType())->get($input));
+        $this->assertSame($expected, (new StringType())->convert($input));
     }
 }
