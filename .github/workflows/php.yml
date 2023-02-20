@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['8.1', '8.2', '8.3']
+        php-versions: ['8.1', '8.2']
       
     steps:
     - name: Checkout
@@ -34,19 +34,11 @@ jobs:
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-php-
-
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --optimize-autoloader
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
-    - if: matrix.php-versions == '8.3'
-      name: Run test suite ${{ matrix.php-versions }}
-      run: |
-        composer phplint
-        composer phpcs
-        composer phpunit
-    - if: matrix.php-versions != '8.3'
-      name: Run test suite ${{ matrix.php-versions }}
+    - name: Run test suite ${{ matrix.php-versions }}
       run: composer test
