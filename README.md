@@ -37,7 +37,7 @@ class CustomType implements TypeInterface
 }
 ```
 
-Usage:
+Usage of the CustomType:
 
 ```php
 <?php
