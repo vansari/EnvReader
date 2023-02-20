@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Freesoftde\EnvReader\Test;
 
 use Freesoftde\EnvReader\Env;
+use Freesoftde\EnvReader\Exception\NotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
@@ -30,6 +31,18 @@ class EnvTest extends TestCase
                 '1234.56',
                 'float',
                 1234.56,
+            ],
+            'Get Env ON as Bool' => [
+                'SOME_ENV',
+                'ON',
+                'boolean',
+                true
+            ],
+            'Get Env "false" as Bool' => [
+                'SOME_ENV',
+                'false',
+                'boolean',
+                false
             ],
         ];
     }
@@ -69,6 +82,14 @@ class EnvTest extends TestCase
 
     public function testGetWillFail(): void
     {
-        $this->markTestIncomplete();
+        putenv("SOME_ENV=WERT");
+        try {
+            Env::getInstance()->get('SOME_ENV', 'custom_type');
+            $this->fail('Get must fail if type not registered');
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf(NotFoundException::class, $exception);
+        } finally {
+            putenv('SOME_ENV');
+        }
     }
 }
