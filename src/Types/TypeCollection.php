@@ -7,6 +7,9 @@ namespace Freesoftde\EnvReader\Types;
 use Freesoftde\EnvReader\Exception\KeyInUseException;
 use Freesoftde\EnvReader\Exception\NotFoundException;
 
+/**
+ * @psalm-api
+ */
 class TypeCollection
 {
     private array $collection = [];

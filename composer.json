@@ -20,9 +20,16 @@
         "slevomat/coding-standard": "^8.8"
     },
     "scripts": {
-        "lint": "vendor/bin/phplint",
+        "lint": "vendor/bin/phplint src",
+        "phpcs": "vendor/bin/phpcs --standard=PSR12 src tests",
         "psalm": "vendor/bin/psalm",
-        "unit": "vendor/bin/phpunit"
+        "unit": "vendor/bin/phpunit tests",
+        "test": [
+            "@lint",
+            "@phpcs",
+            "@psalm",
+            "@unit"
+        ]
     },
     "config": {
         "allow-plugins": {

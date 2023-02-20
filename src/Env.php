@@ -10,6 +10,9 @@ use Freesoftde\EnvReader\Types\IntegerType;
 use Freesoftde\EnvReader\Types\StringType;
 use Freesoftde\EnvReader\Types\TypeCollection;
 
+/**
+ * @psalm-api
+ */
 final class Env
 {
     private static ?Env $instance = null;
