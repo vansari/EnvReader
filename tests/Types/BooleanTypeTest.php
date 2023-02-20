@@ -56,10 +56,29 @@ class BooleanTypeTest extends TestCase
                 'FALSE',
                 false,
             ],
+            'on' => [
+                'on',
+                true,
+            ],
+            'off' => [
+                'off',
+                false,
+            ],
+            'ON' => [
+                'ON',
+                true,
+            ],
+            'OFF' => [
+                'OFF',
+                false,
+            ],
         ];
     }
+
     /**
      * @covers ::convert
+     * @param string $value
+     * @param bool $expected
      * @return void
      */
     #[DataProvider('provider_testConvert')]

@@ -13,6 +13,6 @@ class BooleanType implements TypeInterface
 
     public function convert(mixed $value): bool
     {
-        // TODO: Implement convert() method.
+        return (bool)filter_var($value, \FILTER_VALIDATE_BOOLEAN);
     }
 }
