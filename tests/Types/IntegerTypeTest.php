@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test\Types;
@@ -10,8 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class IntegerTypeTest extends TestCase
 {
-
-    public static function provider_testGet(): array
+    public static function providerTestGet(): array
     {
         return [
             [
@@ -25,13 +25,13 @@ class IntegerTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('provider_testGet')]
+    #[DataProvider('providerTestGet')]
     public function testGet(string $input, int $expected): void
     {
         $this->assertSame($expected, (new IntegerType())->convert($input));
     }
 
-    public static function provider_testGetWillFail(): array
+    public static function providerTestGetWillFail(): array
     {
         return [
             [
@@ -43,7 +43,7 @@ class IntegerTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('provider_testGetWillFail')]
+    #[DataProvider('providerTestGetWillFail')]
     public function testGetWillFail(string $input): void
     {
         $this->expectException(ConvertionException::class);

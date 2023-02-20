@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test\Types;
@@ -11,8 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class FloatTypeTest extends TestCase
 {
-
-    public static function provider_testGet(): array
+    public static function providerTestGet(): array
     {
         return [
             [
@@ -30,7 +30,7 @@ class FloatTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('provider_testGet')]
+    #[DataProvider('providerTestGet')]
     public function testGet(string $value, float $expected): void
     {
         $this->assertSame($expected, (new FloatType())->convert($value));

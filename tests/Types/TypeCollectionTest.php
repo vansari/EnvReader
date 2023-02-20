@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test\Types;
@@ -18,7 +19,6 @@ use PHPUnit\Framework\TestCase;
  */
 class TypeCollectionTest extends TestCase
 {
-
     public function testConstruct(): void
     {
         $collection = new TypeCollection(new StringType(), new IntegerType());
@@ -39,7 +39,7 @@ class TypeCollectionTest extends TestCase
         new TypeCollection(...$types);
     }
 
-    public static function provider_items(): array
+    public static function providerItems(): array
     {
         return [
             'Add three Types without overwrite' => [
@@ -62,7 +62,7 @@ class TypeCollectionTest extends TestCase
      * @throws KeyInUseException
      * @covers ::addItem
      */
-    #[DataProvider('provider_items')]
+    #[DataProvider('providerItems')]
     public function testAddItem(array $types, bool $overwrite, int $expectedCount): void
     {
         $collection = new TypeCollection();
@@ -88,7 +88,7 @@ class TypeCollectionTest extends TestCase
      * @throws KeyInUseException
      * @covers ::getItem
      */
-    #[DataProvider('provider_items')]
+    #[DataProvider('providerItems')]
     public function testGetItem(array $types, bool $overwrite, int $expectedCount): void
     {
         $collection = new TypeCollection();
@@ -121,7 +121,7 @@ class TypeCollectionTest extends TestCase
      * @throws KeyInUseException
      * @covers ::getKeys
      */
-    #[DataProvider('provider_items')]
+    #[DataProvider('providerItems')]
     public function testGetKeys(array $types, bool $overwrite, int $expectedCount): void
     {
         $addedKeys = [];

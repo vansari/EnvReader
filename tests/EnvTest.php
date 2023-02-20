@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test;
@@ -10,8 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class EnvTest extends TestCase
 {
-
-    public static function provider_testGetWillPass(): array
+    public static function providerTestGetWillPass(): array
     {
         return [
             'Get Env as String' => [
@@ -47,7 +47,7 @@ class EnvTest extends TestCase
         ];
     }
 
-    #[DataProvider('provider_testGetWillPass')]
+    #[DataProvider('providerTestGetWillPass')]
     public function testGetWillPassWithPutenv(?string $env, mixed $value, string $type, mixed $expected): void
     {
         putenv("$env=$value");
@@ -56,7 +56,7 @@ class EnvTest extends TestCase
         putenv($env);
     }
 
-    #[DataProvider('provider_testGetWillPass')]
+    #[DataProvider('providerTestGetWillPass')]
     public function testGetWillPassWithENV(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_ENV[$env] = $value;
@@ -65,7 +65,7 @@ class EnvTest extends TestCase
         unset($_ENV[$env]);
     }
 
-    #[DataProvider('provider_testGetWillPass')]
+    #[DataProvider('providerTestGetWillPass')]
     public function testGetWillPassWithSERVER(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_SERVER[$env] = $value;

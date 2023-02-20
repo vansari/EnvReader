@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test\Types;
@@ -12,8 +13,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BooleanTypeTest extends TestCase
 {
-
-    public static function provider_testConvert(): array
+    public static function providerTestConvert(): array
     {
         return [
             'yes' => [
@@ -81,7 +81,7 @@ class BooleanTypeTest extends TestCase
      * @param bool $expected
      * @return void
      */
-    #[DataProvider('provider_testConvert')]
+    #[DataProvider('providerTestConvert')]
     public function testConvert(string $value, bool $expected): void
     {
         $value = (new BooleanType())->convert($value);

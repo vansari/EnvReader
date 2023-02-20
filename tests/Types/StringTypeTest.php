@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Test\Types;
@@ -9,8 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class StringTypeTest extends TestCase
 {
-
-    public static function provider_testGet(): array
+    public static function providerTestGet(): array
     {
         // Todo: More TestCases
         return [
@@ -30,7 +30,7 @@ class StringTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('provider_testGet')]
+    #[DataProvider('providerTestGet')]
     public function testGet(mixed $input, string $expected): void
     {
         $this->assertSame($expected, (new StringType())->convert($input));

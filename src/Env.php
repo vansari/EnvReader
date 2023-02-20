@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader;
@@ -9,12 +10,13 @@ use Freesoftde\EnvReader\Types\IntegerType;
 use Freesoftde\EnvReader\Types\StringType;
 use Freesoftde\EnvReader\Types\TypeCollection;
 
-class Env
+final class Env
 {
     private static ?Env $instance = null;
     private TypeCollection $collection;
 
-    private function __construct() {
+    private function __construct()
+    {
         $this->collection = new TypeCollection(
             new StringType(),
             new IntegerType(),
@@ -28,14 +30,18 @@ class Env
         return $this->collection;
     }
 
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 
-    private function __wakeup() {}
+    private function __wakeup()
+    {
+    }
 
-    public static function getInstance(): static
+    public static function getInstance(): Env
     {
         if (null === self::$instance) {
-            self::$instance = new static();
+            self::$instance = new Env();
         }
 
         return self::$instance;

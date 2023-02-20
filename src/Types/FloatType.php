@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Freesoftde\EnvReader\Types;
@@ -7,7 +8,6 @@ use Freesoftde\EnvReader\Exception\ConvertionException;
 
 class FloatType implements TypeInterface
 {
-
     public function getName(): string
     {
         return 'float';
@@ -19,6 +19,6 @@ class FloatType implements TypeInterface
             throw new ConvertionException("Could not convert value $value to float.");
         }
 
-        return (float)$filtered;
+        return $filtered;
     }
 }
