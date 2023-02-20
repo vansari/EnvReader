@@ -43,5 +43,6 @@ jobs:
     - name: Run test suite ${{ matrix.php-versions }}
       run: composer test
       
-    - name: Upload coverage reports to Codecov
+    - if: github.event_name == 'pull_request'
+      name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
