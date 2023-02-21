@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Test\Types;
+namespace devcirclede\EnvReader\Test\Types;
 
-use Freesoftde\EnvReader\Exception\ConvertionException;
-use Freesoftde\EnvReader\Types\FloatType;
-use Freesoftde\EnvReader\Types\TypeCollection;
+use devcirclede\EnvReader\Exception\ConvertionException;
+use devcirclede\EnvReader\Types\FloatType;
+use devcirclede\EnvReader\Types\TypeCollection;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Types;
+namespace devcirclede\EnvReader\Types;
 
 interface TypeInterface
 {
