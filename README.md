@@ -1,6 +1,5 @@
 # EnvReader
-PHP Environment Reader
-=======
+
 ### PHP Environment Reader
 
 Simple Environment Reader which can parse the Value to a specific type. It tries to find the Value in $_ENV, $_SERVER and via getenv. The logic is leaned on the [EnvVarProcessor](https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/DependencyInjection/EnvVarProcessor.php) from Symfony.
