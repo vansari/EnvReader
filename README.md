@@ -1,4 +1,5 @@
 # EnvReader
+
 ### PHP Environment Reader
 
 Simple Environment Reader which can parse the Value to a specific type. It tries to find the Value in $_ENV, $_SERVER and via getenv. The logic is leaned on the [EnvVarProcessor](https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/DependencyInjection/EnvVarProcessor.php) from Symfony.
@@ -20,7 +21,7 @@ declare(strict_types=1);
 
 namespace Company\EnvTypes;
 
-use Freesoftde\EnvReader\Types\TypeInterface;
+use devcirclede\EnvReader\Types\TypeInterface;
 
 class CustomType implements TypeInterface
 {
@@ -43,6 +44,7 @@ Usage of the CustomType:
 <?php
 
 use Company\EnvTypes\CustomType;
+use devcirclede\EnvReader\Env;
 
 $env = Env::getInstance();
 // add custom type
