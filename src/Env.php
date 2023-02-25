@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace devcirclede\EnvReader;
 
+use devcirclede\EnvReader\Types\ArrayType;
 use devcirclede\EnvReader\Types\BooleanType;
 use devcirclede\EnvReader\Types\FloatType;
 use devcirclede\EnvReader\Types\IntegerType;
@@ -21,6 +22,7 @@ final class Env
     private function __construct()
     {
         $this->collection = new TypeCollection(
+            new ArrayType(),
             new StringType(),
             new IntegerType(),
             new FloatType(),
