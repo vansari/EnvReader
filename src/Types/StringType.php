@@ -13,6 +13,6 @@ class StringType implements TypeInterface
 
     public function convert(string $value): string
     {
-        return (string)$value;
+        return $value;
     }
 }

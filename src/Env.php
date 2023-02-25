@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace devcirclede\EnvReader;
 
+use devcirclede\EnvReader\Exception\NotFoundException;
 use devcirclede\EnvReader\Types\ArrayType;
 use devcirclede\EnvReader\Types\BooleanType;
 use devcirclede\EnvReader\Types\FloatType;
@@ -52,12 +53,33 @@ final class Env
         return self::$instance;
     }
 
+    /**
+     * @throws NotFoundException
+     */
     public function get(string $env, string $type): mixed
+    {
+        if ('' === $env) {
+            throw new \InvalidArgumentException('Variable $env can not be empty.');
+        }
+
+        if (null === ($value = $this->findEnv($env))) {
+            return null;
+        }
+
+        return $this->collection->getItem($type)->convert($value);
+    }
+
+    private function findEnv(string $env): ?string
     {
         if (false === (bool)($value = $_ENV[$env] ?? $_SERVER[$env] ?? getenv($env))) {
             return null;
         }
 
-        return $this->collection->getItem($type)->convert($value);
+        // We cannot handle arrays which "can be" returned by getenv()
+        if (is_array($value)) {
+            return null;
+        }
+
+        return (string)$value;
     }
 }
