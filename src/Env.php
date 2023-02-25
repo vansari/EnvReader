@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader;
+namespace devcirclede\EnvReader;
 
-use Freesoftde\EnvReader\Types\BooleanType;
-use Freesoftde\EnvReader\Types\FloatType;
-use Freesoftde\EnvReader\Types\IntegerType;
-use Freesoftde\EnvReader\Types\StringType;
-use Freesoftde\EnvReader\Types\TypeCollection;
+use devcirclede\EnvReader\Types\BooleanType;
+use devcirclede\EnvReader\Types\FloatType;
+use devcirclede\EnvReader\Types\IntegerType;
+use devcirclede\EnvReader\Types\StringType;
+use devcirclede\EnvReader\Types\TypeCollection;
 
 /**
  * @psalm-api

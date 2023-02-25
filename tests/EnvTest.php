@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Test;
+namespace devcirclede\EnvReader\Test;
 
-use Freesoftde\EnvReader\Env;
-use Freesoftde\EnvReader\Exception\NotFoundException;
+use devcirclede\EnvReader\Env;
+use devcirclede\EnvReader\Exception\NotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

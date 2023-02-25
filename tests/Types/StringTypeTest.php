@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Test\Types;
+namespace devcirclede\EnvReader\Test\Types;
 
-use Freesoftde\EnvReader\Types\StringType;
+use devcirclede\EnvReader\Types\StringType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

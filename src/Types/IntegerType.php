@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Types;
+namespace devcirclede\EnvReader\Types;
 
-use Freesoftde\EnvReader\Exception\ConvertionException;
+use devcirclede\EnvReader\Exception\ConvertionException;
 
 class IntegerType implements TypeInterface
 {

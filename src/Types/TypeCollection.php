@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Types;
+namespace devcirclede\EnvReader\Types;
 
-use Freesoftde\EnvReader\Exception\KeyInUseException;
-use Freesoftde\EnvReader\Exception\NotFoundException;
+use devcirclede\EnvReader\Exception\KeyInUseException;
+use devcirclede\EnvReader\Exception\NotFoundException;
 
 /**
  * @psalm-api
