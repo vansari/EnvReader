@@ -13,7 +13,7 @@ class FloatType implements TypeInterface
         return 'float';
     }
 
-    public function convert(mixed $value): float
+    public function convert(string $value): float
     {
         if (false === ($filtered = filter_var($value, \FILTER_VALIDATE_FLOAT))) {
             throw new ConvertionException("Could not convert value $value to float.");

@@ -8,5 +8,5 @@ interface TypeInterface
 {
     public function getName(): string;
 
-    public function convert(mixed $value): mixed;
+    public function convert(string $value): mixed;
 }

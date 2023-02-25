@@ -13,7 +13,7 @@ class IntegerType implements TypeInterface
         return 'integer';
     }
 
-    public function convert(mixed $value): int
+    public function convert(string $value): int
     {
         if (
             false === (
