@@ -1,16 +1,16 @@
 {
-    "name": "freesoftde/env-reader",
+    "name": "devcirclede/env-reader",
     "description": "Simple Env Reader for PHP",
     "type": "project",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Freesoftde\\EnvReader\\": "src/"
+            "devcirclede\\EnvReader\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Freesoftde\\EnvReader\\Test\\": "tests/"
+            "devcirclede\\EnvReader\\Test\\": "tests/"
         }
     },
     "require-dev": {

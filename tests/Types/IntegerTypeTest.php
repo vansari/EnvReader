@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Test\Types;
+namespace devcirclede\EnvReader\Test\Types;
 
-use Freesoftde\EnvReader\Exception\ConvertionException;
-use Freesoftde\EnvReader\Types\IntegerType;
+use devcirclede\EnvReader\Exception\ConvertionException;
+use devcirclede\EnvReader\Types\IntegerType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

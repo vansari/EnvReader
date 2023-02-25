@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Freesoftde\EnvReader\Test\Types;
+namespace devcirclede\EnvReader\Test\Types;
 
-use Freesoftde\EnvReader\Exception\KeyInUseException;
-use Freesoftde\EnvReader\Exception\NotFoundException;
-use Freesoftde\EnvReader\Types\FloatType;
-use Freesoftde\EnvReader\Types\IntegerType;
-use Freesoftde\EnvReader\Types\StringType;
-use Freesoftde\EnvReader\Types\TypeCollection;
-use Freesoftde\EnvReader\Types\TypeInterface;
+use devcirclede\EnvReader\Exception\KeyInUseException;
+use devcirclede\EnvReader\Exception\NotFoundException;
+use devcirclede\EnvReader\Types\FloatType;
+use devcirclede\EnvReader\Types\IntegerType;
+use devcirclede\EnvReader\Types\StringType;
+use devcirclede\EnvReader\Types\TypeCollection;
+use devcirclede\EnvReader\Types\TypeInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Freesoftde\EnvReader\Types\TypeCollection
+ * @coversDefaultClass \devcirclede\EnvReader\Types\TypeCollection
  */
 class TypeCollectionTest extends TestCase
 {
