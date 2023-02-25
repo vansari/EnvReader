@@ -8,7 +8,6 @@ use devcirclede\EnvReader\Exception\ConvertionException;
 
 class ArrayType implements TypeInterface
 {
-
     public function getName(): string
     {
         return 'array';
@@ -21,13 +20,12 @@ class ArrayType implements TypeInterface
         }
 
         return array_map(
-            fn (string $value): string|float|int
-                => filter_var($value, FILTER_VALIDATE_INT)
-                    ?: filter_var($value, FILTER_VALIDATE_FLOAT)
+            fn(string $value): string|float|int => filter_var($value, FILTER_VALIDATE_INT)
+                ?: filter_var($value, FILTER_VALIDATE_FLOAT)
                     ?: $value,
             array_filter(
                 array_map('trim', explode(',', $match['values'])),
-                fn ($value) => '' !== $value
+                fn($value) => '' !== $value
             )
         );
     }
