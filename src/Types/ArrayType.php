@@ -20,9 +20,15 @@ class ArrayType implements TypeInterface
             throw new ConvertionException('Value must start with "[" and must end with "]".');
         }
 
-        return array_filter(
-            array_map('trim', explode(',', $match['values'])),
-            fn ($value) => '' !== $value
+        return array_map(
+            fn (string $value): string|float|int
+                => filter_var($value, FILTER_VALIDATE_INT)
+                    ?: filter_var($value, FILTER_VALIDATE_FLOAT)
+                    ?: $value,
+            array_filter(
+                array_map('trim', explode(',', $match['values'])),
+                fn ($value) => '' !== $value
+            )
         );
     }
 }

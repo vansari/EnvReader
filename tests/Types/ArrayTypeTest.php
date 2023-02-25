@@ -30,8 +30,8 @@ class ArrayTypeTest extends TestCase
                 ['a', 'b', 'c', 'd', 'e'],
             ],
             'mixed Array' => [
-                '[a,123,c,456,e]',
-                ['a', 123, 'c', 456, 'e'],
+                '[a,123,c,456,e,123.56]',
+                ['a', 123, 'c', 456, 'e', 123.56],
             ],
             'Array with whitespace' => [
                 '[a,   123   ,   c,  45 6, e]',
@@ -44,7 +44,7 @@ class ArrayTypeTest extends TestCase
     public function testConvert(string $input, array $expected): void
     {
         $value = (new ArrayType())->convert($input);
-        $this->assertEquals($expected, $value);
+        $this->assertSame($expected, $value);
     }
 
     public static function providerTestConvertWillFailWithInvalidValues(): array
