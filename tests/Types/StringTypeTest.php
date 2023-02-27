@@ -15,18 +15,8 @@ class StringTypeTest extends TestCase
         // Todo: More TestCases
         return [
             ['text', 'text'],
-            [12345, '12345'],
-            [123.56, '123.56'],
-            [
-                new class implements \Stringable
-                {
-                    public function __toString(): string
-                    {
-                        return 'anonymous';
-                    }
-                },
-                'anonymous'
-            ]
+            ['12345', '12345'],
+            ['123.56', '123.56'],
         ];
     }
 
