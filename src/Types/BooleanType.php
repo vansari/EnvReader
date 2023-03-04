@@ -11,7 +11,7 @@ class BooleanType implements TypeInterface
         return 'boolean';
     }
 
-    public function convert(mixed $value): bool
+    public function convert(string $value): bool
     {
         return (bool)filter_var($value, \FILTER_VALIDATE_BOOLEAN);
     }

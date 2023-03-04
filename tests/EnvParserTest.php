@@ -44,6 +44,12 @@ class EnvParserTest extends TestCase
                 'boolean',
                 false
             ],
+            'Get Env array as Array' => [
+                'SOME_ENV',
+                '[1,a,2,b,3,c]',
+                'array',
+                [1, 'a', 2, 'b', 3, 'c'],
+            ],
             'Get Env as JSON' => [
                 'SOME_ENV',
                 '{"foo": "bar"}',
