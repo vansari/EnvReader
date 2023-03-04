@@ -26,7 +26,7 @@ class IntegerTypeTest extends TestCase
     }
 
     #[DataProvider('providerTestGet')]
-    public function testGet(string $input, int $expected): void
+    public function testConvert(string $input, int $expected): void
     {
         $this->assertSame($expected, (new IntegerType())->convert($input));
     }
@@ -44,7 +44,7 @@ class IntegerTypeTest extends TestCase
     }
 
     #[DataProvider('providerTestGetWillFail')]
-    public function testGetWillFail(string $input): void
+    public function testConvertWillFail(string $input): void
     {
         $this->expectException(ConvertionException::class);
         (new IntegerType())->convert($input);

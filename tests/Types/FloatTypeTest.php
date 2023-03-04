@@ -31,12 +31,12 @@ class FloatTypeTest extends TestCase
     }
 
     #[DataProvider('providerTestGet')]
-    public function testGet(string $value, float $expected): void
+    public function testConvert(string $value, float $expected): void
     {
         $this->assertSame($expected, (new FloatType())->convert($value));
     }
 
-    public function testGetWillFail(): void
+    public function testConvertWillFail(): void
     {
         $this->expectException(ConvertionException::class);
         (new FloatType())->convert('abcdef');
