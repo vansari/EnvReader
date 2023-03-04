@@ -7,15 +7,16 @@ namespace devcirclede\EnvReader;
 use devcirclede\EnvReader\Types\BooleanType;
 use devcirclede\EnvReader\Types\FloatType;
 use devcirclede\EnvReader\Types\IntegerType;
+use devcirclede\EnvReader\Types\JsonType;
 use devcirclede\EnvReader\Types\StringType;
 use devcirclede\EnvReader\Types\TypeCollection;
 
 /**
  * @psalm-api
  */
-final class Env
+final class EnvParser
 {
-    private static ?Env $instance = null;
+    private static ?EnvParser $instance = null;
     private TypeCollection $collection;
 
     private function __construct()
@@ -25,6 +26,7 @@ final class Env
             new IntegerType(),
             new FloatType(),
             new BooleanType(),
+            new JsonType(),
         );
     }
 
@@ -41,16 +43,16 @@ final class Env
     {
     }
 
-    public static function getInstance(): Env
+    public static function getInstance(): EnvParser
     {
         if (null === self::$instance) {
-            self::$instance = new Env();
+            self::$instance = new EnvParser();
         }
 
         return self::$instance;
     }
 
-    public function get(string $env, string $type): mixed
+    public function parse(string $env, string $type): mixed
     {
         if (false === (bool)($value = $_ENV[$env] ?? $_SERVER[$env] ?? getenv($env))) {
             return null;
