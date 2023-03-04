@@ -11,7 +11,8 @@ Actual included Types are:
 - string
 - boolean
 - array
-- json
+
+(json has an open MR)
 
 You can add your own Type by creating a class which implements the TypeInterface.
 
