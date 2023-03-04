@@ -10,6 +10,8 @@ Actual included Types are:
 - float
 - string
 - boolean
+- array
+- json
 
 You can add your own Type by creating a class which implements the TypeInterface.
 
