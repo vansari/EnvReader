@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace devcirclede\EnvReader\Test;
+namespace Vansari\EnvReader\Test;
 
-use devcirclede\EnvReader\Env;
-use devcirclede\EnvReader\Exception\NotFoundException;
+use Vansari\EnvReader\Env;
+use Vansari\EnvReader\Exception\NotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

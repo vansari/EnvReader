@@ -24,7 +24,7 @@ declare(strict_types=1);
 
 namespace Company\EnvTypes;
 
-use devcirclede\EnvReader\Types\TypeInterface;
+use Vansari\EnvReader\Types\TypeInterface;
 
 class CustomType implements TypeInterface
 {
@@ -47,7 +47,7 @@ Usage of the CustomType:
 <?php
 
 use Company\EnvTypes\CustomType;
-use devcirclede\EnvReader\EnvParser;
+use Vansari\EnvReader\EnvParser;
 
 $envParser = EnvParser::getInstance();
 // add custom type

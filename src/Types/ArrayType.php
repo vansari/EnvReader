@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace devcirclede\EnvReader\Types;
+namespace Vansari\EnvReader\Types;
 
-use devcirclede\EnvReader\Exception\ConvertionException;
+use Vansari\EnvReader\Exception\ConvertionException;
 
 class ArrayType implements TypeInterface
 {

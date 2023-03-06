@@ -1,6 +1,6 @@
 {
-    "name": "devcirclede/env-reader",
-    "description": "Simple Env Reader for PHP",
+    "name": "vansari/env-reader",
+    "description": "Simple Env Reader/Parser for PHP",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "devcirclede\\EnvReader\\": "src/"
+            "Vansari\\EnvReader\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "devcirclede\\EnvReader\\Test\\": "tests/"
+            "Vansari\\EnvReader\\Test\\": "tests/"
         }
     },
     "require-dev": {

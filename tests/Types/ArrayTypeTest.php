@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace devcirclede\EnvReader\Test\Types;
+namespace Vansari\EnvReader\Test\Types;
 
-use devcirclede\EnvReader\Exception\ConvertionException;
-use devcirclede\EnvReader\Types\ArrayType;
+use Vansari\EnvReader\Exception\ConvertionException;
+use Vansari\EnvReader\Types\ArrayType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
