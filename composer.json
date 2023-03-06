@@ -3,6 +3,12 @@
     "description": "Simple Env Reader for PHP",
     "type": "project",
     "license": "MIT",
+    "authors": [
+        {
+            "name": "Kurt Junker",
+            "email": "kurt.junker@posteo.de"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "devcirclede\\EnvReader\\": "src/"
