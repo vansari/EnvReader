@@ -6,13 +6,12 @@ namespace DevCircleDe\EnvReader\Test\Types;
 
 use DevCircleDe\EnvReader\Exception\ConvertionException;
 use DevCircleDe\EnvReader\Types\FloatType;
-use DevCircleDe\EnvReader\Types\TypeCollection;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class FloatTypeTest extends TestCase
 {
-    public static function providerTestGet(): array
+    public static function providerTestConvert(): array
     {
         return [
             [
@@ -30,13 +29,13 @@ class FloatTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('providerTestGet')]
-    public function testGet(string $value, float $expected): void
+    #[DataProvider('providerTestConvert')]
+    public function testConvert(string $value, float $expected): void
     {
         $this->assertSame($expected, (new FloatType())->convert($value));
     }
 
-    public function testGetWillFail(): void
+    public function testConvertWillFail(): void
     {
         $this->expectException(ConvertionException::class);
         (new FloatType())->convert('abcdef');
