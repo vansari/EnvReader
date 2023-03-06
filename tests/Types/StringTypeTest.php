@@ -21,7 +21,7 @@ class StringTypeTest extends TestCase
     }
 
     #[DataProvider('providerTestGet')]
-    public function testGet(mixed $input, string $expected): void
+    public function testConvert(mixed $input, string $expected): void
     {
         $this->assertSame($expected, (new StringType())->convert($input));
     }
