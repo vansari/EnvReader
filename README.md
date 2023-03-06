@@ -47,13 +47,13 @@ Usage of the CustomType:
 <?php
 
 use Company\EnvTypes\CustomType;
-use devcirclede\EnvReader\Env;
+use devcirclede\EnvReader\EnvParser;
 
-$env = Env::getInstance();
+$envParser = EnvParser::getInstance();
 // add custom type
-$env->getCollection()->addItem(new CustomType());
+$envParser->getCollection()->addItem(new CustomType());
 
 // read Env
-$var = $env->get('FOO', 'custom_type');
+$var = $envParser->parse('FOO', 'custom_type');
 
 ```
