@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace DevCircleDe\EnvReader\Test;
+namespace devcirclede\EnvReader\Test;
 
-use DevCircleDe\EnvReader\Env;
-use DevCircleDe\EnvReader\Exception\NotFoundException;
+use devcirclede\EnvReader\EnvParser;
+use devcirclede\EnvReader\Exception\NotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class EnvTest extends TestCase
+class EnvParserTest extends TestCase
 {
-    public static function providerTestGetWillPass(): array
+    public static function providerTestParseWillPass(): array
     {
         return [
             'Get Env as String' => [
@@ -49,48 +49,60 @@ class EnvTest extends TestCase
                 '[1,a,2,b,3,c]',
                 'array',
                 [1, 'a', 2, 'b', 3, 'c'],
-            ]
+            ],
+            'Get Env as JSON' => [
+                'SOME_ENV',
+                '{"foo": "bar"}',
+                'json',
+                ["foo" => "bar"],
+            ],
+            'Get Env as JSON #2' => [
+                'SOME_ENV',
+                '{"foo": "bar", "baz": [1,2,3,4,5,6,7.23]}',
+                'json',
+                ["foo" => "bar", "baz" => [1,2,3,4,5,6,7.23]],
+            ],
         ];
     }
 
-    #[DataProvider('providerTestGetWillPass')]
-    public function testGetWillPassWithPutenv(?string $env, mixed $value, string $type, mixed $expected): void
+    #[DataProvider('providerTestParseWillPass')]
+    public function testParseWillPassWithPutenv(?string $env, mixed $value, string $type, mixed $expected): void
     {
         putenv("$env=$value");
-        $envValue = Env::getInstance()->get($env, $type);
+        $envValue = EnvParser::getInstance()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         putenv($env);
     }
 
-    #[DataProvider('providerTestGetWillPass')]
-    public function testGetWillPassWithENV(?string $env, mixed $value, string $type, mixed $expected): void
+    #[DataProvider('providerTestParseWillPass')]
+    public function testParseWillPassWithENV(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_ENV[$env] = $value;
-        $envValue = Env::getInstance()->get($env, $type);
+        $envValue = EnvParser::getInstance()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         unset($_ENV[$env]);
     }
 
-    #[DataProvider('providerTestGetWillPass')]
-    public function testGetWillPassWithSERVER(?string $env, mixed $value, string $type, mixed $expected): void
+    #[DataProvider('providerTestParseWillPass')]
+    public function testParseWillPassWithSERVER(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_SERVER[$env] = $value;
-        $envValue = Env::getInstance()->get($env, $type);
+        $envValue = EnvParser::getInstance()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         unset($_SERVER[$env]);
     }
 
-    public function testGetWillReturnNullIfNotExists(): void
+    public function testParseWillReturnNullIfNotExists(): void
     {
-        $envValue = Env::getInstance()->get('NOT_EXISTS', 'string');
+        $envValue = EnvParser::getInstance()->parse('NOT_EXISTS', 'string');
         $this->assertNull($envValue);
     }
 
-    public function testGetWillFail(): void
+    public function testParseWillFail(): void
     {
         putenv("SOME_ENV=WERT");
         try {
-            Env::getInstance()->get('SOME_ENV', 'custom_type');
+            EnvParser::getInstance()->parse('SOME_ENV', 'custom_type');
             $this->fail('Get must fail if type not registered');
         } catch (\Exception $exception) {
             $this->assertInstanceOf(NotFoundException::class, $exception);
