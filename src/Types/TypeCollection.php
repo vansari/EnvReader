@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Types;
+namespace DevCircleDe\EnvReader\Types;
 
-use Vansari\EnvReader\Exception\KeyInUseException;
-use Vansari\EnvReader\Exception\NotFoundException;
+use DevCircleDe\EnvReader\Exception\KeyInUseException;
+use DevCircleDe\EnvReader\Exception\NotFoundException;
 
 /**
  * @psalm-api

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Exception\ConvertionException;
-use Vansari\EnvReader\Types\ArrayType;
+use DevCircleDe\EnvReader\Exception\ConvertionException;
+use DevCircleDe\EnvReader\Types\ArrayType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \\${TESTED_NAMESPACE}\\${TESTED_NAME}
+ * @coversDefaultClass \DevCircleDe\EnvReader\Types\ArrayType
  */
 class ArrayTypeTest extends TestCase
 {

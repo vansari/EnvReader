@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Exception\ConvertionException;
-use Vansari\EnvReader\Types\FloatType;
-use Vansari\EnvReader\Types\TypeCollection;
+use DevCircleDe\EnvReader\Exception\ConvertionException;
+use DevCircleDe\EnvReader\Types\FloatType;
+use DevCircleDe\EnvReader\Types\TypeCollection;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Types\StringType;
+use DevCircleDe\EnvReader\Types\StringType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

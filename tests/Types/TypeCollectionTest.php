@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Exception\KeyInUseException;
-use Vansari\EnvReader\Exception\NotFoundException;
-use Vansari\EnvReader\Types\FloatType;
-use Vansari\EnvReader\Types\IntegerType;
-use Vansari\EnvReader\Types\StringType;
-use Vansari\EnvReader\Types\TypeCollection;
-use Vansari\EnvReader\Types\TypeInterface;
+use DevCircleDe\EnvReader\Exception\KeyInUseException;
+use DevCircleDe\EnvReader\Exception\NotFoundException;
+use DevCircleDe\EnvReader\Types\FloatType;
+use DevCircleDe\EnvReader\Types\IntegerType;
+use DevCircleDe\EnvReader\Types\StringType;
+use DevCircleDe\EnvReader\Types\TypeCollection;
+use DevCircleDe\EnvReader\Types\TypeInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Vansari\EnvReader\Types\TypeCollection
+ * @coversDefaultClass \DevCircleDe\EnvReader\Types\TypeCollection
  */
 class TypeCollectionTest extends TestCase
 {

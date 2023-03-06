@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Types;
+namespace DevCircleDe\EnvReader\Types;
 
 interface TypeInterface
 {

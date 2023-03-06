@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Exception\ConvertionException;
-use Vansari\EnvReader\Types\IntegerType;
+use DevCircleDe\EnvReader\Exception\ConvertionException;
+use DevCircleDe\EnvReader\Types\IntegerType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 

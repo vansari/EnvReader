@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader;
+namespace DevCircleDe\EnvReader;
 
-use Vansari\EnvReader\Exception\NotFoundException;
-use Vansari\EnvReader\Types\ArrayType;
-use Vansari\EnvReader\Types\BooleanType;
-use Vansari\EnvReader\Types\FloatType;
-use Vansari\EnvReader\Types\IntegerType;
-use Vansari\EnvReader\Types\StringType;
-use Vansari\EnvReader\Types\TypeCollection;
+use DevCircleDe\EnvReader\Exception\NotFoundException;
+use DevCircleDe\EnvReader\Types\ArrayType;
+use DevCircleDe\EnvReader\Types\BooleanType;
+use DevCircleDe\EnvReader\Types\FloatType;
+use DevCircleDe\EnvReader\Types\IntegerType;
+use DevCircleDe\EnvReader\Types\StringType;
+use DevCircleDe\EnvReader\Types\TypeCollection;
 
 /**
  * @psalm-api

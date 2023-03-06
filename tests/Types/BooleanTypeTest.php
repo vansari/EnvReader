@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Vansari\EnvReader\Test\Types;
+namespace DevCircleDe\EnvReader\Test\Types;
 
-use Vansari\EnvReader\Types\BooleanType;
+use DevCircleDe\EnvReader\Types\BooleanType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @coversDefaultClass \Vansari\EnvReader\Types\BooleanType
+ * @coversDefaultClass \DevCircleDe\EnvReader\Types\BooleanType
  */
 class BooleanTypeTest extends TestCase
 {
