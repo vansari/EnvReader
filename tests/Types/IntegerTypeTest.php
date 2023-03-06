@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class IntegerTypeTest extends TestCase
 {
-    public static function providerTestGet(): array
+    public static function providerTestConvert(): array
     {
         return [
             [
@@ -25,13 +25,13 @@ class IntegerTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('providerTestGet')]
-    public function testGet(string $input, int $expected): void
+    #[DataProvider('providerTestConvert')]
+    public function testConvert(string $input, int $expected): void
     {
         $this->assertSame($expected, (new IntegerType())->convert($input));
     }
 
-    public static function providerTestGetWillFail(): array
+    public static function providerTestConvertWillFail(): array
     {
         return [
             [
@@ -43,8 +43,8 @@ class IntegerTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('providerTestGetWillFail')]
-    public function testGetWillFail(string $input): void
+    #[DataProvider('providerTestConvertWillFail')]
+    public function testConvertWillFail(string $input): void
     {
         $this->expectException(ConvertionException::class);
         (new IntegerType())->convert($input);

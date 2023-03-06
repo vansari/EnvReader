@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class StringTypeTest extends TestCase
 {
-    public static function providerTestGet(): array
+    public static function providerTestConvert(): array
     {
         // Todo: More TestCases
         return [
@@ -20,8 +20,8 @@ class StringTypeTest extends TestCase
         ];
     }
 
-    #[DataProvider('providerTestGet')]
-    public function testGet(mixed $input, string $expected): void
+    #[DataProvider('providerTestConvert')]
+    public function testConvert(mixed $input, string $expected): void
     {
         $this->assertSame($expected, (new StringType())->convert($input));
     }

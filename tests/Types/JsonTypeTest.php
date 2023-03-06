@@ -5,39 +5,38 @@ declare(strict_types=1);
 namespace DevCircleDe\EnvReader\Test\Types;
 
 use DevCircleDe\EnvReader\Exception\ConvertionException;
-use DevCircleDe\EnvReader\Types\FloatType;
+use DevCircleDe\EnvReader\Types\JsonType;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-class FloatTypeTest extends TestCase
+/**
+ * @coversDefaultClass \DevCircleDe\EnvReader\Types\JsonType
+ */
+class JsonTypeTest extends TestCase
 {
     public static function providerTestConvert(): array
     {
         return [
             [
-                '123.45',
-                123.45
+                '{}',
+                [],
             ],
             [
-                '1000',
-                1000.00
+                '{"foo": "bar", "baz": 123.45}',
+                ["foo" => "bar", "baz" => 123.45],
             ],
-            [
-                '0.1234',
-                0.1234
-            ]
         ];
     }
 
     #[DataProvider('providerTestConvert')]
-    public function testConvert(string $value, float $expected): void
+    public function testConvert(string $input, array $expected): void
     {
-        $this->assertSame($expected, (new FloatType())->convert($value));
+        $this->assertSame($expected, (new JsonType())->convert($input));
     }
 
     public function testConvertWillFail(): void
     {
         $this->expectException(ConvertionException::class);
-        (new FloatType())->convert('abcdef');
+        (new JsonType())->convert('');
     }
 }
