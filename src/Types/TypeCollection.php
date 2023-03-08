@@ -21,7 +21,7 @@ final class TypeCollection implements TypeCollectionInterface
         }
     }
 
-    public function addItem(TypeInterface $type, bool $overwrite = false): self
+    public function addItem(TypeInterface $type, bool $overwrite = false): TypeCollectionInterface
     {
         if (array_key_exists($type->getName(), $this->collection) && !$overwrite) {
             throw new KeyInUseException("Key '{$type->getName()}' already exists.");
@@ -41,6 +41,9 @@ final class TypeCollection implements TypeCollectionInterface
         return $this->collection[$key];
     }
 
+    /**
+     * @return string[]
+     */
     public function getKeys(): array
     {
         return array_keys($this->collection);

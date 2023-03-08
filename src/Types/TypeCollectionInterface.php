@@ -9,9 +9,12 @@ namespace DevCircleDe\EnvReader\Types;
  */
 interface TypeCollectionInterface
 {
-    public function addItem(TypeInterface $type, bool $overwrite = false): TypeCollection;
+    public function addItem(TypeInterface $type, bool $overwrite = false): TypeCollectionInterface;
 
     public function getItem(string $key): TypeInterface;
 
+    /**
+     * @return string[]
+     */
     public function getKeys(): array;
 }
