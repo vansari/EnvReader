@@ -8,7 +8,7 @@ class BooleanType implements TypeInterface
 {
     public function getName(): string
     {
-        return 'boolean';
+        return 'bool';
     }
 
     public function convert(string $value): bool

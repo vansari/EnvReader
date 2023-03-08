@@ -10,7 +10,7 @@ class IntegerType implements TypeInterface
 {
     public function getName(): string
     {
-        return 'integer';
+        return 'int';
     }
 
     public function convert(string $value): int
