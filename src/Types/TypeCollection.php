@@ -10,7 +10,7 @@ use DevCircleDe\EnvReader\Exception\NotFoundException;
 /**
  * @psalm-api
  */
-class TypeCollection
+final class TypeCollection implements TypeCollectionInterface
 {
     private array $collection = [];
 
