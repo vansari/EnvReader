@@ -23,7 +23,7 @@ class EnvTest extends TestCase
             'Get Env as Int' => [
                 'SOME_ENV',
                 '1234',
-                'integer',
+                'int',
                 1234,
             ],
             'Get Env as Float' => [
@@ -35,13 +35,13 @@ class EnvTest extends TestCase
             'Get Env ON as Bool' => [
                 'SOME_ENV',
                 'ON',
-                'boolean',
+                'bool',
                 true
             ],
             'Get Env "false" as Bool' => [
                 'SOME_ENV',
                 'false',
-                'boolean',
+                'bool',
                 false
             ],
             'Get Env array as Array' => [
