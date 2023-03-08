@@ -11,8 +11,7 @@ Actual included Types are:
 - string
 - boolean
 - array
-
-(json has an open MR)
+- json
 
 You can add your own Type by creating a class which implements the TypeInterface.
 
@@ -24,7 +23,7 @@ declare(strict_types=1);
 
 namespace Company\EnvTypes;
 
-use Vansari\EnvReader\Types\TypeInterface;
+use DevCircleDe\EnvReader\Types\TypeInterface;
 
 class CustomType implements TypeInterface
 {
@@ -47,7 +46,7 @@ Usage of the CustomType:
 <?php
 
 use Company\EnvTypes\CustomType;
-use Vansari\EnvReader\EnvParser;
+use DevCircleDe\EnvReader\EnvParser;
 
 $envParser = EnvParser::getInstance();
 // add custom type

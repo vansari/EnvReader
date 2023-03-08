@@ -1,6 +1,7 @@
 {
     "name": "devcirclede/env-reader",
     "description": "Simple Env Reader/Parser for PHP",
+    "keywords": ["env","reader","parser"],
     "type": "project",
     "license": "MIT",
     "authors": [
