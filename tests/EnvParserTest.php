@@ -69,7 +69,7 @@ class EnvParserTest extends TestCase
     public function testParseWillPassWithPutenv(?string $env, mixed $value, string $type, mixed $expected): void
     {
         putenv("$env=$value");
-        $envValue = EnvParser::getInstance()->parse($env, $type);
+        $envValue = EnvParser::create()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         putenv($env);
     }
@@ -78,7 +78,7 @@ class EnvParserTest extends TestCase
     public function testParseWillPassWithENV(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_ENV[$env] = $value;
-        $envValue = EnvParser::getInstance()->parse($env, $type);
+        $envValue = EnvParser::create()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         unset($_ENV[$env]);
     }
@@ -87,14 +87,14 @@ class EnvParserTest extends TestCase
     public function testParseWillPassWithSERVER(?string $env, mixed $value, string $type, mixed $expected): void
     {
         $_SERVER[$env] = $value;
-        $envValue = EnvParser::getInstance()->parse($env, $type);
+        $envValue = EnvParser::create()->parse($env, $type);
         $this->assertSame($expected, $envValue);
         unset($_SERVER[$env]);
     }
 
     public function testParseWillReturnNullIfNotExists(): void
     {
-        $envValue = EnvParser::getInstance()->parse('NOT_EXISTS', 'string');
+        $envValue = EnvParser::create()->parse('NOT_EXISTS', 'string');
         $this->assertNull($envValue);
     }
 
@@ -102,7 +102,7 @@ class EnvParserTest extends TestCase
     {
         putenv("SOME_ENV=WERT");
         try {
-            EnvParser::getInstance()->parse('SOME_ENV', 'custom_type');
+            EnvParser::create()->parse('SOME_ENV', 'custom_type');
             $this->fail('Get must fail if type not registered');
         } catch (\Exception $exception) {
             $this->assertInstanceOf(NotFoundException::class, $exception);
