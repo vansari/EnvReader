@@ -1,3 +1,4 @@
+![workflow](https://github.com/devcircle-de/EnvReader/actions/workflows/php.yml/badge.svg)
 # EnvReader
 
 ### PHP Environment Reader
