@@ -133,4 +133,30 @@ class TypeCollectionTest extends TestCase
         $this->assertCount($expectedCount, $collection->getKeys());
         $this->assertSame(array_values(array_unique($addedKeys)), $collection->getKeys());
     }
+
+    #[DataProvider('providerItems')]
+    public function testIterateOverCollection(array $types, bool $overwrite, int $expectedCount): void
+    {
+        $collection = new TypeCollection();
+        foreach ($types as $type) {
+            $collection->addItem($type, $overwrite);
+        }
+        $addedKeys = $collection->getKeys();
+        $index = 0;
+        while($collection->valid()) {
+            $key = $collection->key();
+            $this->assertSame($addedKeys[$index], $key);
+            $index++;
+            $collection->next();
+        }
+
+        $collection->rewind();
+        $index = 0;
+        $this->assertSame($addedKeys[$index], $collection->key());
+
+        foreach ($collection as $key => $item) {
+            $this->assertSame($addedKeys[$index], $key);
+            $index++;
+        }
+    }
 }

@@ -13,6 +13,7 @@ use DevCircleDe\EnvReader\Exception\NotFoundException;
 final class TypeCollection implements TypeCollectionInterface
 {
     private array $collection = [];
+    private int $pos = 0;
 
     public function __construct(TypeInterface ...$types)
     {
@@ -47,5 +48,35 @@ final class TypeCollection implements TypeCollectionInterface
     public function getKeys(): array
     {
         return array_keys($this->collection);
+    }
+
+    public function current(): mixed
+    {
+        return $this->collection[array_keys($this->collection)[$this->pos]];
+    }
+
+    public function next(): void
+    {
+        $this->pos++;
+    }
+
+    public function key(): string
+    {
+        return array_keys($this->collection)[$this->pos];
+    }
+
+    public function valid(): bool
+    {
+        return $this->pos < count($this->collection);
+    }
+
+    public function rewind(): void
+    {
+        $this->pos = 0;
+    }
+
+    public function count(): int
+    {
+        return count($this->collection);
     }
 }

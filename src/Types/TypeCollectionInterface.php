@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace DevCircleDe\EnvReader\Types;
 
+use Countable;
+use Iterator;
+
 /**
  * @psalm-api
  */
-interface TypeCollectionInterface
+interface TypeCollectionInterface extends Iterator, Countable
 {
     public function addItem(TypeInterface $type, bool $overwrite = false): TypeCollectionInterface;
 
