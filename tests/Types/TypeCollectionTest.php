@@ -143,7 +143,7 @@ class TypeCollectionTest extends TestCase
         }
         $addedKeys = $collection->getKeys();
         $index = 0;
-        while($collection->valid()) {
+        while ($collection->valid()) {
             $key = $collection->key();
             $this->assertSame($addedKeys[$index], $key);
             $index++;
