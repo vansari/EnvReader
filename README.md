@@ -1,4 +1,4 @@
-![workflow](https://github.com/devcircle-de/EnvReader/actions/workflows/php.yml/badge.svg)
+<img src="https://img.shields.io/github/v/release/devcircle-de/EnvReader.svg" /> ![workflow](https://github.com/devcircle-de/EnvReader/actions/workflows/php.yml/badge.svg) <a href="https://play.phpsandbox.io/devcirclede/env-reader"><img src="https://img.shields.io/badge/Test%20package%20on-play.phpsandbox.io-blue.svg" /></a> 
 # EnvReader
 
 ### PHP Environment Reader
