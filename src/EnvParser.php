@@ -16,14 +16,13 @@ use DevCircleDe\EnvReader\Types\TypeCollection;
 /**
  * @psalm-api
  */
-final class EnvParser
+final class EnvParser implements EnvParserInterface
 {
-    private static ?EnvParser $instance = null;
     private TypeCollection $collection;
 
-    private function __construct()
+    public function __construct(?TypeCollection $collection = null)
     {
-        $this->collection = new TypeCollection(
+        $this->collection = $collection ?? new TypeCollection(
             new ArrayType(),
             new StringType(),
             new IntegerType(),
@@ -33,26 +32,14 @@ final class EnvParser
         );
     }
 
+    public static function create(): EnvParserInterface
+    {
+        return new self();
+    }
+
     public function getCollection(): TypeCollection
     {
         return $this->collection;
-    }
-
-    private function __clone()
-    {
-    }
-
-    private function __wakeup()
-    {
-    }
-
-    public static function getInstance(): EnvParser
-    {
-        if (null === self::$instance) {
-            self::$instance = new EnvParser();
-        }
-
-        return self::$instance;
     }
 
     /**

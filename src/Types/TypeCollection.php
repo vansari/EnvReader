@@ -10,9 +10,10 @@ use DevCircleDe\EnvReader\Exception\NotFoundException;
 /**
  * @psalm-api
  */
-class TypeCollection
+final class TypeCollection implements TypeCollectionInterface
 {
     private array $collection = [];
+    private int $pos = 0;
 
     public function __construct(TypeInterface ...$types)
     {
@@ -21,7 +22,7 @@ class TypeCollection
         }
     }
 
-    public function addItem(TypeInterface $type, bool $overwrite = false): self
+    public function addItem(TypeInterface $type, bool $overwrite = false): TypeCollectionInterface
     {
         if (array_key_exists($type->getName(), $this->collection) && !$overwrite) {
             throw new KeyInUseException("Key '{$type->getName()}' already exists.");
@@ -41,8 +42,41 @@ class TypeCollection
         return $this->collection[$key];
     }
 
+    /**
+     * @return string[]
+     */
     public function getKeys(): array
     {
         return array_keys($this->collection);
+    }
+
+    public function current(): mixed
+    {
+        return $this->collection[array_keys($this->collection)[$this->pos]];
+    }
+
+    public function next(): void
+    {
+        $this->pos++;
+    }
+
+    public function key(): string
+    {
+        return array_keys($this->collection)[$this->pos];
+    }
+
+    public function valid(): bool
+    {
+        return $this->pos < count($this->collection);
+    }
+
+    public function rewind(): void
+    {
+        $this->pos = 0;
+    }
+
+    public function count(): int
+    {
+        return count($this->collection);
     }
 }
