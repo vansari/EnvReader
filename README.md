@@ -5,6 +5,14 @@
 
 Simple Environment Reader which can parse the Value to a specific type. It tries to find the Value in $_ENV, $_SERVER and via getenv. The logic is leaned on the [EnvVarProcessor](https://github.com/symfony/symfony/blob/6.2/src/Symfony/Component/DependencyInjection/EnvVarProcessor.php) from Symfony.
 
+### Installation
+
+```shell
+composer require devcirclede/env-reader
+```
+
+### Supported Types
+
 Actual included Types are:
 
 - integer
